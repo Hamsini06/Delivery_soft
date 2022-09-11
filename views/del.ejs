@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/del_styles.css">
+  </head>
+  <body>
+    <h1>Delivery Process</h1>
+    <h4>Pending orders:</h4>
+    <table id = "tb" class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Store</th>
+      <th scope="col">Order no</th>
+      <th scope="col">Status</th>
+      <th scope="col">Delivery info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%data.forEach(function(val){%>
+      <form class="del_form" action="/del" method="post">
+        <tr>
+          <td><%=val.store%></td>
+          <td><%=val.order_no%></td>
+          <td><button type="button" onclick= " " name="button" class="chk nxt_btn btn-sm btn">Proceed to Delivery</button></td>
+          <td>
+              <label for="">Address:</label>
+              <input type="text" name="address" value="">
+              <label for="">Time Slot:</label>
+              <select class="" name="time">
+                <option value="8-9">8am - 9am</option>
+                <option value="`0-11">10am - 11am</option>
+                <option value="1-2">1pm - 2pm</option>
+                <option value="4-5">4pm - 5pm</option>
+                <option value="8-9">8pm - 9pm</option>
+
+              </select>
+              <label for="">Optional tip:</label>
+              <input id = "chk" type="checkbox" onclick="change()" name="tipbox" value="">
+              <input id = "txt" style = "display: none;" type="text" name="tip" value="">
+              <button type="submit" onclick="chg()"name ="button" class="sub nxt_btn btn-sm"><a>Submit</a></button>
+
+            </form>
+          </td>
+        </tr>
+    <%})%>
+  </tbody>
+</table>
+
+<script src="js/data.js" charset="utf-8"></script>
+  </body>
+</html>
